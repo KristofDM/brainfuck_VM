@@ -11,6 +11,7 @@
 #include <stdexcept>
 #include <exception>
 #include "BFMachine.h"
+#include "Program.h"
 
 int main(int argc, char* argv[]) {
 	try {

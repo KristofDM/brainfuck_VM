@@ -8,8 +8,9 @@
 #ifndef INSTRUCTION_H_
 #define INSTRUCTION_H_
 
-#include "BFMachine.h"
 #include <stack>
+#include <iostream>
+#include "BFMachine.h"
 
 namespace bfm {
 
@@ -17,7 +18,7 @@ class Instruction {
 public:
 	Instruction();
 	virtual ~Instruction();
-	virtual void perform() = 0;
+	virtual void perform(BFMachine&) = 0;
 };
 
 class InstructionRight : public Instruction {

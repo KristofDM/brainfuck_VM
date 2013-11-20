@@ -9,9 +9,9 @@
 
 namespace bfm {
 
-BFMachine::BFMachine(Program input)
+BFMachine::BFMachine(Program& input)
 	: head_(0),	// Point our head to the first cell of our tape.
-	  input_(input)
+	  input_(&input)
 {}
 
 BFMachine::~BFMachine() {

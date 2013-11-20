@@ -15,10 +15,9 @@
 #include <cstdio>
 #include <stack>
 #include <utility>
+#include "Instruction.h"
 
 namespace bfm {
-
-class Instruction;
 
 class Program {
 public:

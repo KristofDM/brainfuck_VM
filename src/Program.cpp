@@ -19,8 +19,9 @@ Program::Program(std::string fileName) {
 		if (file.good()) {
 			switch (c) {
 			case '>':
+				Instruction* test = new InstructionRight;
+				//instructions.push_back(new InstructionRight);
 				break;
-				//instructions.push_back(new Instruction);
 			}
 			if (c == '>' || c == '<' || c == '+' || c == '-' || c == '.' || c == ',') {
 				//instructions.push_back(c);
