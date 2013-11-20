@@ -10,9 +10,10 @@
 
 #include <stack>
 #include <iostream>
-#include "BFMachine.h"
 
 namespace bfm {
+
+class BFMachine;
 
 class Instruction {
 public:

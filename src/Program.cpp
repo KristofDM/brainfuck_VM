@@ -9,7 +9,7 @@
 
 namespace bfm {
 
-Program::Program(std::string fileName) {
+Program::Program(std::string fileName) : head_(0) {
 	// open file
 	std::ifstream file;
 	file.open(fileName);
@@ -19,20 +19,32 @@ Program::Program(std::string fileName) {
 		if (file.good()) {
 			switch (c) {
 			case '>':
-				Instruction* test = new InstructionRight;
-				//instructions.push_back(new InstructionRight);
+				instructions.push_back(new InstructionRight);
 				break;
-			}
-			if (c == '>' || c == '<' || c == '+' || c == '-' || c == '.' || c == ',') {
-				//instructions.push_back(c);
-			}
-			else if (c == '[') {
-				//stack.push(std::pair<char, int>(c, file.tellg()));
-			}
-			else if (c == ']') {
-				//std::pair<char, int> td = stack.top();
-				//s/tack.pop();
-				//file.seekg(td.second);
+			case '<':
+				instructions.push_back(new InstructionLeft);
+				break;
+			case '+':
+				instructions.push_back(new InstructionInc);
+				break;
+			case '-':
+				instructions.push_back(new InstructionDec);
+				break;
+			case '.':
+				instructions.push_back(new InstructionOut);
+				break;
+			case ',':
+				instructions.push_back(new InstructionIn);
+				break;
+			case '[':
+				instructions.push_back(new InstructionJumpFw);
+				break;
+			case ']':
+				instructions.push_back(new InstructionJumpBw);
+				break;
+			default:
+				// do nothing (token not part of brainfuck)
+				break;
 			}
 		}
 	}
@@ -40,12 +52,24 @@ Program::Program(std::string fileName) {
 
 std::ostream& operator<<(std::ostream& o, Program& p) {
 	for (auto e : p.instructions) {
+		// This will print addresses.
 		o << e << " ";
 	}
 
 	return o;
 }
 
+std::vector<Instruction*> Program::getInstructions() {
+	return instructions;
+}
+
+void Program::setHead(int newHead) {
+	head_ = newHead;
+}
+
+int Program::getHead() {
+	return head_;
+}
 
 Program::~Program() {
 	// TODO Auto-generated destructor stub

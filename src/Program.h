@@ -22,10 +22,20 @@ namespace bfm {
 class Program {
 public:
 	Program(std::string);
+
 	virtual ~Program();
+
 	friend std::ostream& operator<<(std::ostream&, Program&);
+
+	void setHead(int);
+
+	int getHead();
+
+	std::vector<Instruction*> getInstructions();
 private:
 	std::vector<Instruction*> instructions;
+
+	int head_;
 };
 
 } /* namespace bfm */

@@ -25,12 +25,13 @@ int main(int argc, char* argv[]) {
 
 
 		// Create machine and load program:
-		//bfm::BFMachine machine;
 		bfm::Program prog(fileName);
-		std::cout << prog << std::endl;
+//		std::cout << prog << std::endl;
+		bfm::BFMachine machine(prog);
+
 
 		// Run program
-		// machine.run(prog);
+		machine.run();
 
 		std::cout << "Program finished." << std::endl;
 	}
