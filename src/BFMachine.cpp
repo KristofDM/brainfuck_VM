@@ -12,9 +12,9 @@ namespace bfm {
 
 BFMachine::BFMachine(Program input)
 	: input_(input),
-	  head_(0)	// Point our head to the first cell of our tape.
+	  head_(250000)	// Point our head to the first cell of our tape.
 {
-		tape_.resize(30000, 0);
+		tape_.resize(500000, 0);
 }
 
 BFMachine::~BFMachine() {
@@ -35,7 +35,6 @@ void BFMachine::setHead(int newHead) {
 
 void BFMachine::run() {
 	while (input_.getInstrInd() != input_.getInstructions().size()) {
-//		std::cout << "getInstrInd: " << input_.getInstrInd() << std::endl;
 		input_.getInstructions()[input_.getInstrInd()]->perform(*this);
 	}
 }
