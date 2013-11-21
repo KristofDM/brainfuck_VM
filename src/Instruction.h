@@ -55,6 +55,7 @@ public:
 class Jump : public Instruction {
 protected:
 	static std::stack<int> stack;
+	static std::stack<int> lpStack;
 	int lastPopped;
 };
 

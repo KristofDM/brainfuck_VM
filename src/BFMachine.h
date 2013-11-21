@@ -27,14 +27,13 @@ public:
 
 	void run();
 
-	void setHeads(int);
-
 	std::vector<Data> tape_;
+
+	Program input_;
+
 private:
 	void readSymbol();
 	int head_;
-//	std::unique_ptr<Program> input_; forward declaration not compatible with smart ptrs?
-	Program input_;
 };
 
 } /* namespace bfm */

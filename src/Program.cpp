@@ -9,7 +9,7 @@
 
 namespace bfm {
 
-Program::Program(std::string fileName) : head_(0) {
+Program::Program(std::string fileName) : instrInd_(0) {
 	// open file
 	std::ifstream file;
 	file.open(fileName);
@@ -63,12 +63,12 @@ std::vector<Instruction*> Program::getInstructions() {
 	return instructions;
 }
 
-void Program::setHead(int newHead) {
-	head_ = newHead;
+void Program::setInstrInd(int index) {
+	instrInd_ = index;
 }
 
-int Program::getHead() {
-	return head_;
+int Program::getInstrInd() {
+	return instrInd_;
 }
 
 Program::~Program() {

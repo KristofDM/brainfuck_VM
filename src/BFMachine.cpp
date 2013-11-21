@@ -11,8 +11,8 @@
 namespace bfm {
 
 BFMachine::BFMachine(Program input)
-	: head_(0),	// Point our head to the first cell of our tape.
-	  input_(input)
+	: input_(input),
+	  head_(0)	// Point our head to the first cell of our tape.
 {
 		tape_.resize(30000, 0);
 }
@@ -31,21 +31,13 @@ int BFMachine::getHead() {
 
 void BFMachine::setHead(int newHead) {
 	head_ = newHead;
-	std::cout << "NEWHEAD = " << head_ << std::endl;
-}
-
-void BFMachine::setHeads(int newHead) {
-	head_ = newHead;
-	input_.setHead(newHead);
-	std::cout << "NEWHEAD = " << head_ << std::endl;
 }
 
 void BFMachine::run() {
-
-	/*
-	 * Need to write this.
-	 */
-
+	while (input_.getInstrInd() != input_.getInstructions().size()) {
+//		std::cout << "getInstrInd: " << input_.getInstrInd() << std::endl;
+		input_.getInstructions()[input_.getInstrInd()]->perform(*this);
+	}
 }
 
 } /* namespace bfm */

@@ -27,15 +27,15 @@ public:
 
 	friend std::ostream& operator<<(std::ostream&, Program&);
 
-	void setHead(int);
+	void setInstrInd(int);
 
-	int getHead();
+	int getInstrInd();
 
 	std::vector<Instruction*> getInstructions();
 private:
 	std::vector<Instruction*> instructions;
 
-	int head_;
+	int instrInd_;
 };
 
 } /* namespace bfm */

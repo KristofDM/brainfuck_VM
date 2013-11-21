@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
 		std::cout << "Program finished." << std::endl;
 	}
 	catch (std::exception& e) {
-
+		std::cout << "EXCEPTION!" << std::endl;
 	}
 	return 0;
 }
